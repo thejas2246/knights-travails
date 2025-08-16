@@ -9,18 +9,30 @@ function knightMoves(originalPosition,targetPosition){
     queue.push(originalPosition);
     visited[originalPosition[0]][originalPosition[1]] = true;
     console.log(visited)
+    didFound = false;
     while(queue.length!==0){
     
         let currentNode = queue.shift();
-        console.log(currentNode);
         let [r,c] = currentNode;
+        if(didFound){
+            break;
+        }
         for(let move of moves){
             let nr = r + move[0];
             let nc = c + move[1];
+            if(nr>=0&&nr<rows && nc>=0 && nc<columns && !visited[nr][nc]){
+                parent[nr][nc] = [r,c];
+                if(nr===targetPosition[0]&&nc===targetPosition[1]){
+                    didFound = true;
+                    break;
+                }
+                queue.push([nr,nc])
+                visited[nr][nc] = true;
+            }
         }
-        
     }
+    
 }
 
-knightMoves([0,0],[1,2]);
+knightMoves([0,0],[5,6]);
 
