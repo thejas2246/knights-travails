@@ -8,7 +8,6 @@ function knightMoves(originalPosition,targetPosition){
     let parent = Array.from({length:rows},()=>new Array(columns).fill(null));
     queue.push(originalPosition);
     visited[originalPosition[0]][originalPosition[1]] = true;
-    console.log(visited)
     didFound = false;
     while(queue.length!==0){
     
@@ -31,8 +30,21 @@ function knightMoves(originalPosition,targetPosition){
             }
         }
     }
-    
+    let pathQueue = [];
+   let [parentRow,parentColumn] = targetPosition;
+
+   while(true){
+    pathQueue.push([parentRow,parentColumn]);
+    [parentRow,parentColumn] = parent[parentRow][parentColumn]
+    if(parentRow===originalPosition[0]&&parentColumn===originalPosition[1]){
+        break;
+    }
+   }
+   pathQueue.push([originalPosition[0],originalPosition[1]])
+   
+   pathQueue = pathQueue.reverse()
+   console.log(pathQueue)
 }
 
-knightMoves([0,0],[5,6]);
+knightMoves([0,0],[0,6]);
 
