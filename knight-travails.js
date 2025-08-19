@@ -64,12 +64,9 @@ if(targetPosition[0]<0||targetPosition[0]>=rows||targetPosition[1]<0||targetPosi
    pathQueue.push([originalPosition[0],originalPosition[1]])
    
    pathQueue = pathQueue.reverse()
-   console.log(`You made it in ${pathQueue.length-1} moves! Here is your path`);
-   pathQueue.forEach((item)=>{
-    console.log(item)
-   })
-
+   return pathQueue;
 }
 
-knightMoves([0,0],[0,7]);
+let move = knightMoves([0,0],[0,7]);
+console.log(move)
 
