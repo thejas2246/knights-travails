@@ -9,7 +9,7 @@ function equalsArray(a,b){
     return true
 }
 
-function knightMoves(originalPosition,targetPosition){
+export function knightMoves(originalPosition,targetPosition){
     if(equalsArray(originalPosition,targetPosition)){
         throw new Error("same original and target position")
     }
@@ -22,6 +22,7 @@ if(originalPosition[0]<0||originalPosition[0]>=rows||originalPosition[1]<0||orig
 if(targetPosition[0]<0||targetPosition[0]>=rows||targetPosition[1]<0||targetPosition[1]>=columns){
     throw new Error("out of range");
 }
+
     
     let visited = Array.from({length:rows},()=>new Array(columns).fill(false));
     let queue = [];

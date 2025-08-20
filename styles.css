@@ -3,19 +3,33 @@ body{
     justify-content: center;
     align-items: center;
     height: 100vh;
+    flex-direction: column;
+    gap: 20px;
 }
 .board-container{
     background-color: black;
-    width: 80%;
-    height: 80%;
+    width: 700px;
+    height: 700px;
     display: grid;
     grid-template-columns: repeat(8,1fr);
     grid-template-rows: repeat(8,1fr);
+    border: 2px solid black;
+}
+
+.board-container>div{
+    color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .white{
     background-color: white;
 }
 .black{
-    background-color: black;
+    background-color: orange;
+}
+
+img{
+    width: 50px;
 }
